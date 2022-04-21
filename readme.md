@@ -22,10 +22,10 @@ npm run build
 <br />
 <div align="center">
   
-  <h3 align="center">HIFOAM - chaussure de sport</h3>
+  <h3 align="center">HIFOAM - chaussures de sport</h3>
 
   <p align="center">
-    Page d'un site de vente de chaussure utlilisant Three JS 
+    Page d'un site de vente de chaussures utilisant Three JS 
     <br />
     <a href="https://hifoam.vercel.app/">voir la Demo</a>
   </p>
