@@ -44,12 +44,17 @@ const camera = new THREE.PerspectiveCamera( 65, width / height, 0.1, 1000 );
 const renderer = new THREE.WebGLRenderer(
     {
         canvas:canvasElement,
-        alpha:true
+        alpha:true,
+        antialias:true
     }
 );
 
 renderer.shadowMap.enabled=true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
+
+renderer.physicallyCorrectLights = true;
+
+
 console.log(width,height);
 renderer.setSize(width,height);
 camera.position.set(0,0.5,2);
@@ -114,9 +119,7 @@ let floor = new THREE.Mesh(
     new THREE.PlaneGeometry(10,10),
     new THREE.MeshStandardMaterial(
         {
-            roughness:0.5,
-            color:"#f5f5f5"
-            //color:"darkgray"
+            color:"white",
         }
     )
 )
@@ -128,18 +131,18 @@ scene.add(floor)
 /**
  * Lights
  */
-let ambientLight = new THREE.AmbientLight("white",.6)
+let ambientLight = new THREE.AmbientLight("white",1)
 scene.add(ambientLight)
 
 //directional light
-let directionalLight = new THREE.DirectionalLight("white",1)
+let directionalLight = new THREE.DirectionalLight("white",5)
 
 directionalLight.castShadow=true;
 directionalLight.shadow.camera.far=6;
 directionalLight.shadow.camera.near=0;
 
-directionalLight.shadow.mapSize.width=1024;
-directionalLight.shadow.mapSize.height=1024;
+directionalLight.shadow.mapSize.width=2048;
+directionalLight.shadow.mapSize.height=2048;
 
 directionalLight.position.set(0,2,2)
 
@@ -198,8 +201,7 @@ canvasElement.addEventListener("mouseleave",(e)=>{
 })
 
 //animate
-//const controls = new OrbitControls( camera, canvasElement);
-//const controls = new OrbitControls( camera, canvasElement);
+
 let clock = new THREE.Clock();
 function animate() {
 
