@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+
+*,*::before,*::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: "Montserrat";
+    user-select: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    height: 90px;
+
+    .header
+    {
+        width: 90%;
+        max-width: 1300px;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            width: 600px;
+            height: 100%;
+            margin-right: 2rem;
+            li{
+                font-weight: 500;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: .9rem;
+                padding: 0 .5rem;
+                position: relative;
+                border-bottom: 2px solid transparent;
+                cursor: pointer;
+                &:hover
+                {
+                    border-bottom: 2px solid black;
+                }
+            }
+        }
+
+        &__right
+        {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            align-items: center;
+            div{
+                margin: 0 .5rem;
+                border-radius: 50%;
+                cursor: pointer;
+                height: 35px;
+                width: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover{
+                    background: lightgray;
+                }
+            }
+            form{
+                height: 45px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                background: rgb(244, 244, 244);
+                border-radius: 22px;
+                position: relative;
+                input{
+                    width: 80%;
+                    padding-left: 12px;
+                    border: none;
+                    outline: none;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    background: transparent;
+                }
+                &::before
+                {
+                    content: "";
+                    position: absolute;
+                    height: 20px;
+                    width: 20px;
+                    border: 2px solid black;
+                    border-radius: 50%;
+                    left: 12px;
+                    z-index: 2;
+                    background: rgb(244, 244, 244);;
+                }
+                &::after
+                {
+                    content: "";
+                    position: absolute;
+                    height: 20px;
+                    width: 2px;
+                    background: black;
+                    left: 25px;
+                    top: 18px;
+                    transform:rotate(-45deg);
+                    z-index: 1;
+                }
+            }
+        }
+
+        @media screen and(max-width:1100px)
+        {
+            ul{display: none;}
+        }
+        @media screen and(max-width:450px)
+        {
+            &__right
+            {
+                form{
+                    width: 50px;
+                    background: white;
+                    &::before
+                    {
+                        background: white;
+                    }
+                }
+                input
+                {
+                    display: none;
+                }
+            }   
+        }
+    }
+}
+
+.logo
+{
+    height: 40px;
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span{
+        display: block;
+        width: 13px;
+        height: 100%;
+        background: black;
+        transform: skewX(45deg);
+    }
+    span:not(:nth-of-type(2))
+    {
+        height: 50%;
+    }
+}
+
+.content
+{
+    width: 1px solid black;
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and(max-width:980px) {
+        flex-direction: column;
+        width: 95%;
+        box-sizing: content-box;
+        padding: 2rem 0;
+    }
+}
+
+.selling-details
+{
+    padding-top: 2rem;
+    h1{
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+    p{
+        font-weight: 500;
+        margin: .7rem 0;
+    }
+    &>span
+    {
+        font-weight: 600;
+        display: block;
+        margin: 1.5rem 0;
+    }
+    .preview
+    {
+        width: 70px;
+        height: 60px;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 1rem 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            display: block;
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+        }
+    }
+}
+
+.taille
+{
+    h3{
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    ul{
+        display: grid;
+        grid-template-columns: repeat(3,110px);
+        grid-template-rows: repeat(3,1fr);
+        grid-gap: 10px;
+        margin: 2rem 0;
+        @media screen and(max-width:980px)
+        {
+            grid-template-columns: repeat(7,110px);
+            grid-template-rows: repeat(1,1fr);
+        }
+        @media screen and(max-width:920px)
+        {
+            grid-template-columns: repeat(6,110px);
+            grid-template-rows: repeat(2,1fr);
+        }
+        @media screen and(max-width:790px)
+        {
+            grid-template-columns: repeat(4,110px);
+            grid-template-rows: repeat(2,1fr);
+        }
+        @media screen and(max-width:525px)
+        {
+            grid-template-columns: repeat(3,110px);
+            grid-template-rows: repeat(2,1fr);
+        }
+        @media screen and(max-width:400px)
+        {
+            grid-template-columns: repeat(2,110px);
+            grid-template-rows: repeat(4,1fr);
+        }
+    }
+    li{
+        width: 110px;
+        min-width: 110px;
+        height: 45px;
+        min-height: 45px;
+        border-radius: 3px;
+        border: 1px solid darkgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 500;
+        &:hover
+        {
+            border: 1px solid black;
+        }
+    }
+}
+
+.btns
+{
+    @media screen and(max-width:980px) {
+        display: flex;
+        gap: 20px;
+    }   
+    @media screen and(max-width:500px) {
+        display: unset;
+        //gap: 20px;
+    }   
+}
+
+.btn{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 27.5px;
+    margin: 1rem 0;
+    font-size: .9rem;
+    cursor: pointer;
+}
+.add-Btn
+{
+    background: black;
+    color: white;
+    &:hover
+    {
+        background: rgb(110, 110, 110);
+        color: white;
+    }
+}
+.fav-Btn
+{
+    border: 1px solid darkgray;
+    &:hover
+    {
+        border: 1px solid black;
+    }
+}
+.shoeCanvas
+{
+    width: 100%;
+    cursor: grab;
+    &:active
+    {
+        cursor: grabbing;
+    }
+}
+.canvas-container
+{
+    width: 60%;
+    overflow: hidden;
+    @media screen and(max-width:980px)
+    {
+        width: 100%;
+    }
+}
+
+footer
+{
+    background: rgb(237, 237, 237);
+}
+
+.footer
+{
+    width: 90%;
+    max-width: 1300px;
+    height: 120px;
+    margin: 4rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .socialMedias
+    {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        li{
+            svg{
+                width: 30px;
+            }
+            &:hover
+            {
+                path{
+                    fill: rgb(78, 78, 78);
+                }
+            }
+        }
+    }
+
+    .logo
+    {
+        width: 40px;
+        height: 30px;
+        span{
+            width: 12px;
+        }
+    }
+    .gitLink
+    {
+        margin: 1rem 0 0 0 ;
+        font-size: .8rem;
+        color: rgb(69, 69, 69);
+        a{
+            text-decoration: underline;
+        }
+    }
+}
