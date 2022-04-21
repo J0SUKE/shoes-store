@@ -15,6 +15,11 @@ a{
     color: inherit;
 }
 
+.page-container{
+    min-height: calc(100vh - 120px - 4rem); 
+}
+
+
 header{
     height: 90px;
 
