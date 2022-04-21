@@ -1,5 +1,3 @@
-# Three.js Journey
-
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
@@ -29,10 +27,9 @@ npm run build
   <p align="center">
     Page d'un site de vente de chaussure utlilisant Three JS 
     <br />
-    <a href="https://j0suke.github.io/Shoe-store/">voir la Demo</a>
+    <a href="https://hifoam.vercel.app/">voir la Demo</a>
   </p>
 </div>
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
