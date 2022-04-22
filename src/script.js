@@ -102,6 +102,7 @@ let loadModel = (model)=>{
 
     model3D.children[0].rotation.z = -1/2;
 
+    document.querySelector(".layer").style.display = "none";
 
     scene.add(model.scene);
 }
