@@ -237,13 +237,15 @@ header .header__right form::after {
   padding-top: 2rem;
 }
 
-.selling-details h1 {
+.selling-details h1, .selling-details p {
   font-weight: 500;
+}
+
+.selling-details h1 {
   font-size: 1.5rem;
 }
 
 .selling-details p {
-  font-weight: 500;
   margin: .7rem 0;
 }
 
@@ -481,9 +483,7 @@ header .header__right form::after {
   height: calc(var(--uib-size) * 0.27);
 }
 
-.canvas-container .dot-pulse__dot,
-.canvas-container .dot-pulse::before,
-.canvas-container .dot-pulse::after {
+.canvas-container .dot-pulse__dot, .canvas-container .dot-pulse::before, .canvas-container .dot-pulse::after {
   content: '';
   display: block;
   height: calc(var(--uib-size) * 0.18);

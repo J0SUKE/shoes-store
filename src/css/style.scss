@@ -17,7 +17,6 @@ a{
 }
 header{
     height: 90px;
-
     .header
     {
         width: 90%;
@@ -44,13 +43,9 @@ header{
                 position: relative;
                 border-bottom: 2px solid transparent;
                 cursor: pointer;
-                &:hover
-                {
-                    border-bottom: 2px solid black;
-                }
+                &:hover{border-bottom: 2px solid black;}
             }
         }
-
         &__right
         {
             display: flex;
@@ -66,9 +61,7 @@ header{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                &:hover{
-                    background: lightgray;
-                }
+                &:hover{background: lightgray;}
             }
             form{
                 height: 45px;
@@ -113,7 +106,6 @@ header{
                 }
             }
         }
-
         @media screen and(max-width:1100px)
         {
             ul{display: none;}
@@ -125,10 +117,7 @@ header{
                 form{
                     width: 50px;
                     background: white;
-                    &::before
-                    {
-                        background: white;
-                    }
+                    &::before{background: white;}
                 }
                 input
                 {
@@ -165,7 +154,6 @@ header{
     margin: auto;
     display: flex;
     justify-content: space-between;
-
     @media screen and(max-width:980px) {
         flex-direction: column;
         width: 95%;
@@ -176,12 +164,11 @@ header{
 .selling-details
 {
     padding-top: 2rem;
+    h1,p{font-weight: 500;}
     h1{
-        font-weight: 500;
         font-size: 1.5rem;
     }
     p{
-        font-weight: 500;
         margin: .7rem 0;
     }
     &>span
@@ -215,7 +202,6 @@ header{
         font-weight: 500;
         font-size: 1rem;
     }
-
     ul{
         display: grid;
         grid-template-columns: repeat(3,110px);
@@ -260,10 +246,7 @@ header{
         align-items: center;
         cursor: pointer;
         font-weight: 500;
-        &:hover
-        {
-            border: 1px solid black;
-        }
+        &:hover{border: 1px solid black;}
     }
 }
 .btns
@@ -274,7 +257,6 @@ header{
     }   
     @media screen and(max-width:500px) {
         display: unset;
-        //gap: 20px;
     }   
 }
 .btn{
@@ -301,30 +283,20 @@ header{
 .fav-Btn
 {
     border: 1px solid darkgray;
-    &:hover
-    {
-        border: 1px solid black;
-    }
+    &:hover{border: 1px solid black;}
 }
 .shoeCanvas
 {
     width: 100%;
     cursor: grab;
-    &:active
-    {
-        cursor: grabbing;
-    }
+    &:active{cursor: grabbing;}
 }
 .canvas-container
 {
     width: 60%;
     overflow: hidden;
     position: relative;
-    @media screen and(max-width:980px)
-    {
-        width: 100%;
-    }
-
+    @media screen and(max-width:980px){width: 100%;}
     .layer
     {
         position: absolute;
@@ -336,16 +308,12 @@ header{
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        p{
-            margin: 2rem 0;
-        }
+        p{margin: 2rem 0;}
     }
-
     .dot-pulse {
         --uib-size: 40px;
         --uib-speed: 1.3s;
-        --uib-color: rgb(85, 85, 85);
-      
+        --uib-color: rgb(85, 85, 85);    
         position: relative;
         display: flex;
         align-items: center;
@@ -353,10 +321,8 @@ header{
         width: var(--uib-size);
         height: calc(var(--uib-size) * 0.27);
       }
-      
-      .dot-pulse__dot,
-      .dot-pulse::before,
-      .dot-pulse::after {
+      .dot-pulse__dot,.dot-pulse::before,.dot-pulse::after 
+      {
         content: '';
         display: block;
         height: calc(var(--uib-size) * 0.18);
@@ -365,21 +331,17 @@ header{
         background-color: var(--uib-color);
         transform: scale(0);
       }
-      
       .dot-pulse::before {
         animation: pulse var(--uib-speed) ease-in-out infinite;
       }
-      
       .dot-pulse__dot {
         animation: pulse var(--uib-speed) ease-in-out
           calc(var(--uib-speed) * 0.125) infinite both;
       }
-      
       .dot-pulse::after {
         animation: pulse var(--uib-speed) ease-in-out
           calc(var(--uib-speed) * 0.25) infinite;
       }
-      
       @keyframes pulse {
         0%,
         100% {
@@ -390,12 +352,8 @@ header{
           transform: scale(1.5);
         }
       }
-      
 }
-footer
-{
-    background: rgb(237, 237, 237);
-}
+footer{background: rgb(237, 237, 237);}
 .footer
 {
     width: 90%;
@@ -422,7 +380,6 @@ footer
             }
         }
     }
-
     .logo
     {
         width: 40px;
