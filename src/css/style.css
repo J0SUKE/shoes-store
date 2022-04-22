@@ -465,6 +465,72 @@ header .header__right form::after {
   margin: 2rem 0;
 }
 
+.canvas-container .dot-pulse {
+  --uib-size: 40px;
+  --uib-speed: 1.3s;
+  --uib-color: rgb(85, 85, 85);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: var(--uib-size);
+  height: calc(var(--uib-size) * 0.27);
+}
+
+.canvas-container .dot-pulse__dot, .canvas-container .dot-pulse::before, .canvas-container .dot-pulse::after {
+  content: '';
+  display: block;
+  height: calc(var(--uib-size) * 0.18);
+  width: calc(var(--uib-size) * 0.18);
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.canvas-container .dot-pulse::before {
+  -webkit-animation: pulse var(--uib-speed) ease-in-out infinite;
+          animation: pulse var(--uib-speed) ease-in-out infinite;
+}
+
+.canvas-container .dot-pulse__dot {
+  -webkit-animation: pulse var(--uib-speed) ease-in-out calc(var(--uib-speed) * 0.125) infinite both;
+          animation: pulse var(--uib-speed) ease-in-out calc(var(--uib-speed) * 0.125) infinite both;
+}
+
+.canvas-container .dot-pulse::after {
+  -webkit-animation: pulse var(--uib-speed) ease-in-out calc(var(--uib-speed) * 0.25) infinite;
+          animation: pulse var(--uib-speed) ease-in-out calc(var(--uib-speed) * 0.25) infinite;
+}
+
+@-webkit-keyframes pulse {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
 footer {
   background: #ededed;
 }
