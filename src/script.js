@@ -174,20 +174,16 @@ let firstClick = {
     y:0
 }
 
-canvasElement.addEventListener("mousedown",(e)=>{
+//fonction qui gere la salection du model
+
+let selection = (e)=>{
     userHasInteracted=true;
     if (!isClicking) {
         firstClick.x = e.offsetX;
         firstClick.y = e.offsetY;
     }
     isClicking=true;
-    
-})
-
-//curseur vers le haut-bas ==> rotation dans l'axe X
-//curseur vers la gauche-droite ==> rotation dans l'axe Y
-let distanceX=0;
-let distanceY=0;
+}
 
 //fonction qui gere les mouvements de curseur
 let mouseMouvement = (e)=>{
@@ -200,6 +196,13 @@ let mouseMouvement = (e)=>{
     distanceY = (e.offsetY-firstClick.y)/(height*5);
 }
 
+canvasElement.addEventListener("mousedown",selection)
+
+
+//curseur vers le haut-bas ==> rotation dans l'axe X
+//curseur vers la gauche-droite ==> rotation dans l'axe Y
+let distanceX=0;
+let distanceY=0;
 
 canvasElement.addEventListener("mousemove",mouseMouvement);
 
@@ -212,6 +215,7 @@ canvasElement.addEventListener("mouseleave",(e)=>
     isClicking=false;
 })
 
+
 //animate
 
 let clock = new THREE.Clock();
@@ -220,7 +224,8 @@ function animate() {
 
     let elapsedTime= clock.getElapsedTime();
 
-    if (model3D) {
+    if (model3D) 
+    {
         camera.lookAt(model3D.position)
 
         if (!userHasInteracted) {
