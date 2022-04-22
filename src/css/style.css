@@ -440,6 +440,31 @@ header .header__right form::after {
   }
 }
 
+.canvas-container .layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.1);
+  color: #555555;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.canvas-container .layer p {
+  margin: 2rem 0;
+}
+
 footer {
   background: #ededed;
 }
