@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { RedFormat, Scene, Vector3 } from 'three';
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js"
+
 /**
  * Scene
  */
@@ -15,6 +16,8 @@ let sizes = {
     width:0,
     height:0,
 }
+
+//Gestion du resize
 
 if (window.innerWidth>=980) {
     sizes.width=Math.min(container.getBoundingClientRect().width,682);
@@ -29,8 +32,6 @@ else
     else sizes.height=500;    
 }
 
-
-console.log(sizes.width);
 
 const{height,width} = sizes;
 const scene = new THREE.Scene();
@@ -54,12 +55,10 @@ renderer.shadowMap.type = THREE.PCFShadowMap;
 
 renderer.physicallyCorrectLights = true;
 
-
-console.log(width,height);
 renderer.setSize(width,height);
 camera.position.set(0,0.5,2);
 
-//handle window resizing
+//handle window resizing function
 
 function handleResizing() {
     sizes.width=container.getBoundingClientRect().width;    
@@ -80,14 +79,20 @@ function handleResizing() {
 }
 
 window.addEventListener("resize",handleResizing)
-//handleResizing();
 
-//Load the Model 
+
+/**
+ * Load the Model 
+ */
 
 let gtfLoader = new GLTFLoader();
 let modelPath = "model/glTF/MaterialsVariantsShoe.gltf";
 
 let model3D=null;
+
+// Fonction qui vas s'occuper de charger le Model 2D
+
+let layer = document.querySelector(".layer");
 
 let loadModel = (model)=>{
 
@@ -102,7 +107,9 @@ let loadModel = (model)=>{
 
     model3D.children[0].rotation.z = -1/2;
 
-    document.querySelector(".layer").style.display = "none";
+    // Lorce que le model est chargé on supprime le layer
+
+    layer.style.display = "none";
 
     scene.add(model.scene);
 }
@@ -152,20 +159,20 @@ scene.add(directionalLight)
 //render the scene
 renderer.render(scene,camera);
 
+/**
+ * Gestion de la partie interaction avec le model 3D
+ */
+
 
 //let handle cursor 
 let userHasInteracted=false;
 
-let cursor = {
-    x:0,
-    y:0
-}
 let isClicking = false;
+
 let firstClick = {
     x:0,
     y:0
 }
-
 
 canvasElement.addEventListener("mousedown",(e)=>{
     userHasInteracted=true;
@@ -182,9 +189,8 @@ canvasElement.addEventListener("mousedown",(e)=>{
 let distanceX=0;
 let distanceY=0;
 
-
-canvasElement.addEventListener("mousemove",(e)=>{
-    
+//fonction qui gere les mouvements de curseur
+let mouseMouvement = (e)=>{
     if (!isClicking) return;
     
     let width=canvasElement.getBoundingClientRect().width;
@@ -192,25 +198,30 @@ canvasElement.addEventListener("mousemove",(e)=>{
 
     distanceX = (e.offsetX-firstClick.x)/(width*5);
     distanceY = (e.offsetY-firstClick.y)/(height*5);
-})
+}
 
-canvasElement.addEventListener("mouseup",(e)=>{
+
+canvasElement.addEventListener("mousemove",mouseMouvement);
+
+canvasElement.addEventListener("mouseup",(e)=>
+{
     isClicking=false;
 })
-canvasElement.addEventListener("mouseleave",(e)=>{
+canvasElement.addEventListener("mouseleave",(e)=>
+{
     isClicking=false;
 })
 
 //animate
 
 let clock = new THREE.Clock();
+
 function animate() {
 
     let elapsedTime= clock.getElapsedTime();
 
     if (model3D) {
         camera.lookAt(model3D.position)
-        //model3D.children[0].rotation.y = elapsedTime/2;
 
         if (!userHasInteracted) {
             model3D.children[0].rotation.y=(elapsedTime/2);    
@@ -225,8 +236,6 @@ function animate() {
         model3D.children[0].rotation.x+=distanceY;
 
     }
-
-    //controls.update();
 
 	renderer.render( scene, camera );
     requestAnimationFrame( animate );
