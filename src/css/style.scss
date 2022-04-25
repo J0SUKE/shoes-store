@@ -307,11 +307,10 @@ footer{background: rgb(237, 237, 237);}
 {
     width: 90%;
     max-width: 1300px;
-    height: 120px;
-    margin: 4rem auto 0 auto;
+    height: 160px;
+    margin: 6rem auto 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .socialMedias{display: flex;justify-content: space-between;gap: 20px;li{svg{width: 30px;}&:hover{path{fill: rgb(78, 78, 78);}}}}.logo{width: 40px;height: 30px;span{width: 12px;}}.gitLink{margin: 1rem 0 0 0 ;font-size: .8rem;color: rgb(69, 69, 69);a{text-decoration: underline;}
-}
+    .socialMedias{display: flex;justify-content: space-between;gap: 20px;li{svg{width: 30px;}&:hover{path{fill: rgb(78, 78, 78);}}}}.logo{width: 40px;height: 30px;span{width: 12px;}}
 }

@@ -538,8 +538,8 @@ footer {
 .footer {
   width: 90%;
   max-width: 1300px;
-  height: 120px;
-  margin: 4rem auto 0 auto;
+  height: 160px;
+  margin: 6rem auto 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -576,15 +576,5 @@ footer {
 
 .footer .logo span {
   width: 12px;
-}
-
-.footer .gitLink {
-  margin: 1rem 0 0 0;
-  font-size: .8rem;
-  color: #454545;
-}
-
-.footer .gitLink a {
-  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */
